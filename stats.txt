@@ -1,0 +1,2 @@
+Total digit in file : 12
+Total chars in file : 295

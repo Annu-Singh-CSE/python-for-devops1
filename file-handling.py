@@ -16,7 +16,7 @@
 #hum sara kaam github action se kr skte hai]
 # duniya ki puri kaam prograaming se ho skti hai in python 
 
-
+#file handling----------------------------------------------------------
 
 # 1.  File handling in python means reading from and writing to files/folder stored on 
 # disk using python
@@ -24,11 +24,14 @@
 # 2.  Your python code can open a file  , pull out data of it ,  put data into it and
 # also close it properly.
 
-#what is file-------------------
-# 
+#what is file-------------------(raw information ko data bolte hai)
+#but file  me information and data both store
+# files are store of data and information on the specific path of device
+
+
 # type of files
 # 1. text file (.txt,.csv,.json)
-# 2. binary file (images, videos,audio) 
+# 2. binary file (images, videos, audio) 
 
 # Type of file path
 
@@ -55,12 +58,17 @@
 #9. seel() : specific position set of cursor
 
 # in-built module
-#
+#os library
+#shutil library
+#subprocess library
+# randam library
+# string library
 
+#-------------create file
+# file=open("demo.txt","x")
+# print("file created")
 
-
-
-#----------------------------------------
+#---------------------------------------
 #create a file in strict mode
 # try:
 #     file=open("demo.txt","x")
@@ -68,27 +76,57 @@
 # except Exception as e:
 #     print("Error:",e)
 
-#2. write mode file creaction
-# file=open("new_demo.txt","w")
+#2. write mode file creaction  // file jo create hoga write mode me
+# file=open("new_demo.txt","w")  //open method use
 # file.write("this is file content using file handling")
 # print("file created in write mode...")
 # // change directory
 #// current working get directory
 
 
-import os
-print(os.getcwd())
-path=r""
+# import os  #os ke andar hum file bna skte h
+# print(os.getcwd())  # cwd = current working directory
+# path=r"C:\Users\ANNU SINGH\Desktop"        # r koi bhi specil charcter ko string ,me  convert krta h
+# os.chdir(path)
+# print(os.getcwd())   # yeh nbatata hai current directory kya g ex desktop yah c,d
 
+# file=open("lms-app.zip.zip","r")
+# print(os.getcwd())
+# print(os.listdir())  # desktop ka sara file list form me dika dega
 
+# #mtlb hum python .py filr bna ke python ki file ko handle kr skte hai
 
-#context manager  // also use in industry // and we always use with
-with open("demo.txt","r") as file:
-    r=file.read()
-    print(r)
+# file=open("data.py","w")
+# file.write(f"print('File handling')")
+# file.close()
+# print(os.listdir())   not use industry because yha file ko oen and close ke liye coommnd dena pdta h es liye
 
+# #context manager= yeh file ko securly open and close krega humko bina like file.close likhe
+# yha with likhna hota = yeh khud file ko open and close secure tarike se krta h // also use in industry more use and its also work pore because yha file ko open close naa kr ke yeh 
+# // and we always use with
+#with open("demo.txt","r") as file:
+# with open("demo.txt","w") as file: # in use our system log generate krega esi se
+#     #r=file.read()
+#     file.write("this is new content of file")
+#     file.write("this is updated file")
+#     #print(r) #file me jo lika h usko hum dekhn skte h terminal pur
+# #     print("file")
 
-server_list=['prod_server' , "test_server" , "dev_server"]
-for i in server_list:
-    with open(f"{i}.txt","")    
-    
+# server_list=['prod_server' , "test_server" , "dev_server"]
+# for i in server_list:
+#     with open(f"{i}.txt","w") as file:    
+#       print(i,"file created................")
+
+      #server ka ;log generate hum append mode me krte h kyoki last hi record rkhta h fikle khi  
+      #  pichle line dikkat ho toh pta nhi chula paayega 
+      #   append mode me server piche aur aage dono ki log store kr ke rkhta h append in list mode
+
+# with open("dev_server.txt","w") as file:
+#     file.write("this is content of dev server")
+         
+with open("dev_server.txt","a") as file:
+    file.write("\n")
+    file.write("this is content of my server") # mtlb yeh append krne pe jitni
+    #baar run hoga utni baar lig collect hogastorage me (you go and see dev_server file text)
+         
+        
